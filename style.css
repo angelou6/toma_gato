@@ -2,16 +2,16 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background: #13111a;
-    min-height: 100vh;
 }
 
 .cat_container {
-    min-height: 100vh;
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -29,11 +29,8 @@ body {
 
 .gift-wrapper h1 {
     font-size: clamp(6rem, 20vw, 14rem);
-    line-height: 1;
     user-select: none;
-    transition:
-        transform 0.2s ease,
-        filter 0.2s ease;
+    transition: transform 0.2s ease;
     filter: drop-shadow(0 0 30px rgba(157, 127, 255, 0.35));
 }
 
@@ -43,12 +40,10 @@ body {
 
 .hint {
     color: rgba(240, 234, 255, 0.45);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    margin-top: 3rem;
 }
 
 .cat_container img {
@@ -56,10 +51,7 @@ body {
     max-height: 68vh;
     object-fit: contain;
     border-radius: 18px;
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(157, 127, 255, 0.25),
-        0 0 40px rgba(157, 127, 255, 0.1);
+    box-shadow: 0 0 0 1px rgba(157, 127, 255, 0.25);
     animation: fadeIn 0.45s ease;
 }
 
@@ -76,7 +68,6 @@ body {
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
-        transform 0.2s ease,
         box-shadow 0.2s ease;
     animation: fadeIn 0.4s ease 0.3s both;
 }
@@ -84,7 +75,6 @@ body {
 .share-btn:hover {
     background: rgba(157, 127, 255, 0.25);
     border-color: rgba(157, 127, 255, 0.7);
-    transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(157, 127, 255, 0.18);
 }
 
@@ -101,12 +91,7 @@ body {
 }
 
 .loading {
-    width: 48px;
-    height: 48px;
-    border: 3px solid rgba(157, 127, 255, 0.18);
-    border-top-color: #9d7fff;
-    border-radius: 50%;
-    animation: spin 0.75s linear infinite;
+    animation: gelatine 0.75s linear infinite;
 }
 
 @keyframes float {
@@ -130,8 +115,18 @@ body {
     }
 }
 
-@keyframes spin {
+@keyframes gelatine {
+    from,
     to {
-        transform: rotate(360deg);
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+    75% {
+        transform: scale(0.95, 1.05);
     }
 }

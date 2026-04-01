@@ -1,3 +1,4 @@
+const gift = document.querySelector(".gift-wrapper");
 const cat_container = document.querySelector(".cat_container");
 
 function shareCat(e) {
@@ -8,15 +9,12 @@ function shareCat(e) {
 }
 
 function showCat() {
-  cat_container.innerHTML = "";
-
-  const loading = document.createElement("div");
-  loading.className = "loading";
-  cat_container.appendChild(loading);
+  gift.classList.add("loading");
 
   fetch("https://cataas.com/cat")
     .then((r) => r.blob())
     .then((blob) => {
+      history.pushState({ page: "cat" }, "", "/#");
       cat_container.innerHTML = "";
 
       const image = document.createElement("img");
@@ -32,3 +30,9 @@ function showCat() {
 }
 
 document.querySelector(".gift-wrapper").addEventListener("click", showCat);
+
+window.addEventListener("popstate", (e) => {
+  if (e.state?.page !== "cat") {
+    location.reload();
+  }
+});
