@@ -26,6 +26,9 @@ function showCat() {
       btn.textContent = "¿Compartir un gato?";
       btn.addEventListener("click", shareCat);
       cat_container.appendChild(btn);
+    })
+    .catch((e) => {
+      location.href = "/error";
     });
 }
 
