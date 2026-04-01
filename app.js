@@ -14,7 +14,7 @@ function showCat() {
   fetch("https://cataas.com/cat")
     .then((r) => r.blob())
     .then((blob) => {
-      history.pushState({ page: "cat" }, "", "/#");
+      history.pushState({ page: "cat" }, "", "/toma_gato/#cat");
       cat_container.innerHTML = "";
 
       const image = document.createElement("img");
@@ -38,4 +38,9 @@ window.addEventListener("popstate", (e) => {
   if (e.state?.page !== "cat") {
     location.reload();
   }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+  history.replaceState({ path }, "", path);
 });
