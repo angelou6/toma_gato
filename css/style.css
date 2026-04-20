@@ -25,6 +25,7 @@ body {
     gap: 16px;
     cursor: pointer;
     animation: float 3s ease-in-out infinite;
+    user-select: none;
 }
 
 .gift-wrapper h1 {

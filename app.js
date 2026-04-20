@@ -32,7 +32,9 @@ function showCat() {
     });
 }
 
-document.querySelector(".gift-wrapper").addEventListener("click", showCat);
+document
+  .querySelector(".gift-wrapper")
+  .addEventListener("click", showCat, { once: true });
 
 window.addEventListener("popstate", (e) => {
   if (e.state?.page !== "cat") {
